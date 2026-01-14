@@ -32,5 +32,50 @@ public class SimpleDate {
 
         return false;
     }
-
+    
+    public void advance() {
+            this.day += 1;
+            if (this.day > 30) {
+                this.month += 1;
+                this.day -= 30;
+                
+                if (this.month > 12) {
+                    this.month = 1;
+                    this.year += 1;
+                }
+            }
+    }
+    
+    public void advance(int howManyDays) {
+        this.day += howManyDays;
+        while (this.day > 30) {
+            if (this.day > 30) {
+                this.month += 1;
+                this.day -= 30;
+                
+                if (this.month > 12) {
+                    this.month = 1;
+                    this.year += 1;
+                }
+            }
+        }
+    }
+    
+    public SimpleDate afterNumberOfDays(int days) {
+        SimpleDate newDate = new SimpleDate(this.day, this.month, this.year);
+        newDate.day += days;
+        while (newDate.day > 30) {
+            if (newDate.day > 30) {
+                newDate.month += 1;
+                newDate.day -= 30;
+                
+                if (newDate.month > 12) {
+                    newDate.month = 1;
+                    newDate.year += 1;
+                }
+            }
+        }
+        return newDate;
+    }
+    
 }
