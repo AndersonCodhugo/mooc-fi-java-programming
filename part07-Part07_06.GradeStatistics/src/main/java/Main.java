@@ -7,6 +7,11 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         
         // Write your program here -- consider breaking the program into 
-        // multiple classes.
+        // multiple classes.z
+        
+        Grades register = new Grades();
+
+        GradeUI ui = new GradeUI(scanner);
+        ui.start();
     }
 }
