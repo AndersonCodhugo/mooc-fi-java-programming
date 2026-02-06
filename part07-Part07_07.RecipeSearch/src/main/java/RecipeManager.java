@@ -17,15 +17,17 @@ public class RecipeManager {
                 String name = reader.nextLine();
                 int time = Integer.valueOf(reader.nextLine());
                 
-                Recipe newRecipe = new Recipe(name, time);
+                ArrayList<String> recipeIngredients = new ArrayList<>();
+                
                 
                 while (reader.hasNextLine()) {
                     String ingredient = reader.nextLine();
                     if (ingredient.isEmpty()) {
                         break;
                     }
+                    recipeIngredients.add(ingredient);
                 }
-                this.recipes.add(newRecipe);
+                this.recipes.add(new Recipe(name, time, recipeIngredients));
             }
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
